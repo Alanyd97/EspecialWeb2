@@ -1,10 +1,11 @@
 <?php
 
-//require_once "BackEnd/config/ConfigApp.php";
+require_once "BackEnd/config/ConfigApp.php";
+require_once "BackEnd/login/Controller.php";
 
 $action = $_GET["action"];
 
-//$controller_ = new LoginController();
+$controller_ = new LoginController();
 
 function parseURL($url)
 {
