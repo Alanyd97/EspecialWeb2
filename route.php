@@ -4,7 +4,7 @@
 
 $action = $_GET["action"];
 
-$controller_ = new LoginController();
+//$controller_ = new LoginController();
 
 function parseURL($url)
 {
