@@ -1,14 +1,15 @@
 <?php
 
 require_once "View.php";
+require_once "model.php";
 
 class LoginController{
   private $view;
-  private $model;
+  private $modelUsuario;
 
   function __construct(){
     $this->view = new LoginView();
-    
+    $this->modelUsuario = new UsuarioModel();
   }
 
     // FUNCIONES DE LOGIN
@@ -23,48 +24,20 @@ class LoginController{
   public function Login(){
     $nombre = $_POST['nombre'];
     $clave = $_POST['clave'];
-    $dbUser = $this->model->GetUsuario($nombre);
+    $dbUser = $this->modelUsuario->GetUsuario($nombre);
     if (!empty($dbUser)){
       if (password_verify($clave, $dbUser->clave)){
           session_start();
           $_SESSION['user'] =  $dbUser->nombre;
           $_SESSION['id_usuario'] =  $dbUser->id_usuario;
           $_SESSION['admin'] = $dbUser->admin;
-          header(PRODUCTOS);
+          header(JUEGOS);
         }else{
           $this->view->DisplayLogin("Clave incorrecta");
         }
     }else{
       $this->view->DisplayLogin("No existe el usuario");
     }
-  }
-  
-  public function CambiarClave(){
-    $nombre = $_POST['nombre'];
-    $clave = $_POST['clave'];
-    $clave2 = $_POST['clave2'];
-    if ($_POST['nombre'] != '' && $_POST['clave'] != '' && $_POST['clave2'] != '' ){
-      $dbUser = $this->model->GetUsuario($nombre);
-      if (!empty($dbUser)){
-          if ($clave == $clave2){
-            $hash = password_hash($clave, PASSWORD_DEFAULT);
-            if ($dbUser->admin == 0) {
-              $this->model->EditarUsuario($nombre,$hash,0,  $dbUser->id_usuario);
-            }else {
-              $this->model->EditarUsuario($nombre,$hash,1,  $dbUser->id_usuario);
-            }
-            $this->view->DisplayLogin("Clave cambiada con exito, loguearse");
-          }else{
-            $this->view->DisplayCambioClave("Las contraseñas no coinciden");
-          }
-      }else{
-        $this->view->DisplayCambioClave("No se encontro el usuario");
-      }
-    }
-  }
-
-  public function DisplayCambioClave(){
-    $this->view->DisplayCambioClave();
   }
   
   // LOGOUT
