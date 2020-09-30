@@ -1,0 +1,55 @@
+*{
+    font-family: 'Roboto Mono';
+}
+div.container-fluid{
+    background-color: black;
+}
+.portada{
+    height: 90%;
+    width: 90%;
+    padding: 5% 0 0 0;
+}
+.portada, .contenedor-login{
+    padding: 5% 0 0 0;
+}
+.login{
+    background-color: #555555;
+    height: 80%;
+    padding: 0 15%;
+}
+.logo{
+    width: 70%;
+    margin: -5%;
+}
+div .form-control{
+    border-radius: 0 !important;
+}
+div.form-group{
+    margin: 0 0 4% 0;
+}
+.label-login{
+    margin: 0;
+    font-size: x-large;
+    font-weight: 900;
+    color: black !important;
+    height: 55px;
+}
+
+.boton-login{
+    border: none;    background-color: #FFB41A;
+    align-items: center;
+    justify-content: center;
+    border: 10% solid #FFB41A !important;
+    width: 100%;
+    height: 55px;
+    margin-top: 4%;
+}
+a.link{
+    margin-top: 2%;
+    font-size: large;
+    color:  #FFB41A;
+    font-weight: 800;
+}
+a.link:hover{
+  color: #b98418;
+}

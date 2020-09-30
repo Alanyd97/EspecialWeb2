@@ -1,6 +1,6 @@
 <?php
 
-require_once('./FrontEnd/libs/Smarty.class.php');
+require_once('./libs/Smarty.class.php');
 class LoginView{
   private $smarty;
   function __construct(){
@@ -9,8 +9,9 @@ class LoginView{
   }
   
   public function DisplayLogin( $estado = ""){
-    $this->smarty->assign('estado',$estado);
-    $this->smarty->display('./FrontEnd/templates/header.tpl');
+    $this->smarty->display('./../templates/header.tpl');
+    $this->smarty->display('./../FrontEnd/templates/login.tpl');
+    $this->smarty->display('./../templates/footer.tpl');
   }
   public function DisplayCambioClave( $estado = "", $usuario = null){ 
    
