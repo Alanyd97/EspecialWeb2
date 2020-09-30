@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 20, 2020 at 01:02 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 01-10-2020 a las 01:24:07
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `juegos_tudai`
+-- Base de datos: `db_juegos`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `generos`
+-- Estructura de tabla para la tabla `generos`
 --
 
 CREATE TABLE `generos` (
@@ -34,7 +34,7 @@ CREATE TABLE `generos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `generos`
+-- Volcado de datos para la tabla `generos`
 --
 
 INSERT INTO `generos` (`id_generos`, `nombres`, `subgeneros`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `generos` (`id_generos`, `nombres`, `subgeneros`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `juegos`
+-- Estructura de tabla para la tabla `juegos`
 --
 
 CREATE TABLE `juegos` (
@@ -56,45 +56,77 @@ CREATE TABLE `juegos` (
   `id_generos` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Indexes for dumped tables
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id_usuario` int(50) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `clave` varchar(200) NOT NULL,
+  `admin` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `nombre`, `clave`, `admin`) VALUES
+(5, 'asd', 'asd', 0);
+
+--
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `generos`
+-- Indices de la tabla `generos`
 --
 ALTER TABLE `generos`
   ADD PRIMARY KEY (`id_generos`);
 
 --
--- Indexes for table `juegos`
+-- Indices de la tabla `juegos`
 --
 ALTER TABLE `juegos`
   ADD PRIMARY KEY (`id_juegos`),
   ADD KEY `id_generos` (`id_generos`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `generos`
+-- AUTO_INCREMENT de la tabla `generos`
 --
 ALTER TABLE `generos`
   MODIFY `id_generos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `juegos`
+-- AUTO_INCREMENT de la tabla `juegos`
 --
 ALTER TABLE `juegos`
   MODIFY `id_juegos` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `juegos`
+-- Filtros para la tabla `juegos`
 --
 ALTER TABLE `juegos`
   ADD CONSTRAINT `juegos_ibfk_1` FOREIGN KEY (`id_generos`) REFERENCES `generos` (`id_generos`) ON DELETE CASCADE ON UPDATE CASCADE;
