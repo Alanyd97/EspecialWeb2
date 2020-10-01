@@ -1,6 +1,6 @@
 <?php
 
-class juegosmodel {
+class JuegosModel {
 
     private $db;
 
@@ -25,13 +25,13 @@ class juegosmodel {
     }
 
     public function EditarJuegos($titulo,$sinopsis,$requisitos,$precio,$id_genero,$id){
-        $sentencia = $this->db->prepare("UPDATE juegos SET titulo=?, sinopsis=?, requisitos=?, precio=?, id_genero=? WHERE id_juegos=?");
+        $sentencia = $this->db->prepare("UPDATE juegos SET titulo=?, sinopsis=?, requisitos=?, precio=?, id_generoFK=? WHERE id_juegos=?");
         $sentencia->execute(array($titulo,$sinopsis,$requisitos,$precio,$id_genero,$id));
     }
 
     public function InsertarJuegos($id,$titulo,$sinopsis,$requisitos,$precio,$id_genero){
 
-        $sentencia = $this->db->prepare("INSERT INTO juegos(id_juegos, titulo, sinopsis, requisitos, precio, id_genero) VALUES(?,?,?,?,?,?)");
+        $sentencia = $this->db->prepare("INSERT INTO juegos(id_juegos, titulo, sinopsis, requisitos, precio, id_generoFK) VALUES(?,?,?,?,?,?)");
         $sentencia->execute(array($id,$titulo,$sinopsis,$requisitos,$precio,$id_genero));
     }
 
