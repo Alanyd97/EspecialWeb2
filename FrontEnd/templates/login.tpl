@@ -24,4 +24,5 @@
     </div>
     </div>
 </div>
+{include file="./footerApp.tpl"}
 {include file="./../../templates/footer.tpl"}

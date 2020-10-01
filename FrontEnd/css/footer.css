@@ -1,0 +1,29 @@
+.footer{
+    height: 150px;
+    background-color: #555555;
+    
+}
+.social{
+    width: 30%;
+}
+.a{
+    font-size: 25px;
+    border-left: 2px solid black;
+    padding: 0 1%;
+    color:#FFB41A;
+}
+.a2{
+    border-left: 0;
+}
+.a:hover{
+    color: #b98418;
+}
+
+
+p {
+    margin: 0 7px;
+    font-size: 15px;
+}
+.linea1{
+    width: 100%;
+}
