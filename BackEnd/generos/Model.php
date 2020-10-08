@@ -1,6 +1,6 @@
 <?php
 
-class generosmodel {
+class GenerosModel {
 
     private $db;
 

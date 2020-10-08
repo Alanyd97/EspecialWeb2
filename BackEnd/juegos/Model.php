@@ -1,6 +1,6 @@
 <?php
 
-class juegosmodel {
+class JuegosModel {
 
     private $db;
 
