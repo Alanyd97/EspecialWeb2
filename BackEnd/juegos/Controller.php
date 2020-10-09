@@ -5,13 +5,23 @@ require_once "Model.php";
 
 class JuegosController{
     private $view;
-    private $modelUsuario;
+    private $model;
   
+    
     function __construct(){
       $this->view = new JuegosView();
-      $this->modelUsuario = new UsuarioModel;
+      $this->model = new JuegosModel();
     }
+
+    //Envia datos al view (Juegos + generos)
     function DisplayJuegos(){
-      $this->view->DisplayJuegos();
+      $juegos = $this->model->GetJuegos();
+      $this->view->DisplayJuegos($juegos);
+    }
+    function DisplayJuego($id){
+      $juego = $this->model->GetJuego($id);
+      $requisitos = $this->model->GetRequisitos($juego->id_requisito);
+      $this->view->DisplayJuego($juego, $requisitos);
+
     }
 }

@@ -18,7 +18,7 @@
             <button type="submit" class="boton-login">Iniciar sesion</button>
             <small>{$mensaje}</small>
             <div class="row d-flex justify-content-center">
-                <a class="link" href="">Ingresar como invitado</a>
+                <a class="link" href="juegos">Ingresar como invitado</a>
             </div>
           </form>
     </div>

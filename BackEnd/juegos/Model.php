@@ -12,16 +12,20 @@ class JuegosModel {
         $sentencia = $this->db->prepare( "SELECT * FROM juegos");
         $sentencia->execute();
         $juegos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        
         return $juegos;
     }
 
     public function GetJuego($id){
         $sentencia = $this->db->prepare( "SELECT * FROM juegos WHERE id_juegos = ?");
-        $sentencia->execute(array($id));
+        $sentencia->execute($id);
         $juego = $sentencia->fetch(PDO::FETCH_OBJ);
-        
         return $juego;
+    }
+
+    public function GetRequisitos($id){
+        $sentencia = $this->db->prepare("SELECT * FROM requisitos where id_requisito = ?");
+        $sentencia->execute(array($id));
+        return  $sentencia->fetch(PDO::FETCH_OBJ);
     }
 
     public function EditarJuegos($titulo,$sinopsis,$requisitos,$precio,$id_genero,$id){
@@ -30,7 +34,6 @@ class JuegosModel {
     }
 
     public function InsertarJuegos($id,$titulo,$sinopsis,$requisitos,$precio,$id_genero){
-
         $sentencia = $this->db->prepare("INSERT INTO juegos(id_juegos, titulo, sinopsis, requisitos, precio, id_genero) VALUES(?,?,?,?,?,?)");
         $sentencia->execute(array($id,$titulo,$sinopsis,$requisitos,$precio,$id_genero));
     }
