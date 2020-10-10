@@ -1,7 +1,6 @@
 |<?php
-require_once("./juegos/juegosmodel.php");
-require_once("./juegos/view.php");
-require_once("./generos/generosmodel.php");
+require_once("Model.php");
+require_once("View.php");
 
 require_once "View.php";
 require_once "Model.php";
@@ -28,7 +27,5 @@ class JuegosController{
       $this->view->DisplayJuego($juego, $requisitos);
 
     }
-    return $juegoscongenero;
-}
 
 }
