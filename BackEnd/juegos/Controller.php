@@ -18,6 +18,7 @@ class JuegosController{
       $juegos = $this->model->GetJuegos();
       $this->view->DisplayJuegos($juegos);
     }
+    
     function DisplayJuego($id){
       $juego = $this->model->GetJuego($id);
       $requisitos = $this->model->GetRequisitos($juego->id_requisito);

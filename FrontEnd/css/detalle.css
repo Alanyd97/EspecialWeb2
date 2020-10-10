@@ -1,0 +1,29 @@
+.container-fluid{
+    width: 100% !important;
+}
+.row{
+    width: 100% !important;
+}
+.img-miniatura{
+    width: 100% !important;
+    height: 23%;
+    margin: 0;
+    padding: 0;
+    border: 1px solid white;
+    color: white;
+}
+.titulo-detalle{
+    color: white;
+}
+.detalle-container{
+    background-color: #555555;
+}
+.descripcion-container{
+    padding: 1.5% 5% !important;
+}
+.requisitos-container{
+    padding: 2% 5% !important;
+}
+.titulo-requisitos{
+    font-size: large;
+}

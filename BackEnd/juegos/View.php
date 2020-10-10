@@ -15,7 +15,7 @@ class JuegosView{
         $this->smarty->display('./../templates/footer.tpl');
     }
    
-    function DisplayJuego($juego, $requisito){
+    function DisplayJuego($juego, $requisito = null){
         $this->smarty->display('./../templates/header.tpl');
         $this->smarty->assign('juego', $juego);
         $this->smarty->assign('requisitos', $requisito);
