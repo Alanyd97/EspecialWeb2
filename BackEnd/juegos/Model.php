@@ -29,7 +29,7 @@ class JuegosModel {
     }
 
     public function EditarJuegos($titulo,$sinopsis,$requisitos,$precio,$id_genero,$id){
-        $sentencia = $this->db->prepare("UPDATE juegos SET titulo=?, sinopsis=?, requisitos=?, precio=?, id_genero=? WHERE id_juegos=?");
+        $sentencia = $this->db->prepare("UPDATE juegos SET titulo=?, sinopsis=?, requisitos=?, precio=?, id_generoFK=? WHERE id_juegos=?");
         $sentencia->execute(array($titulo,$sinopsis,$requisitos,$precio,$id_genero,$id));
     }
 
