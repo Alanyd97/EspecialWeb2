@@ -1,6 +1,9 @@
 
 {include file="./header.tpl"}
+<<<<<<< HEAD
 {include file="./nav.tpl"}
+=======
+>>>>>>> 86439348a6dcc649519b6e5419431ff619740371
   <div class="row d-flex justify-content-center">
       <div class="col-2 d-flex contenedor-lista">
           <h5 class="align-self-start justify-self-center categorias-titulo">Categorias</h5>
