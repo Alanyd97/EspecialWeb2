@@ -3,6 +3,7 @@
 require_once "BackEnd/config/ConfigApp.php";
 require_once "BackEnd/login/Controller.php";
 require_once "BackEnd/juegos/Controller.php";
+require_once "BackEnd/generos/Controller.php";
 
 $action = $_GET["action"];
 $controller_ = new LoginController();

@@ -1,3 +1,5 @@
+/* DETALLE */
+
 .container-fluid{
     width: 100% !important;
 }
@@ -17,12 +19,14 @@
 }
 .detalle-container{
     background-color: #555555;
+    border-top: solid 40px  #555555;
 }
 .descripcion-container{
     padding: 1.5% 5% !important;
 }
 .requisitos-container{
     padding: 2% 5% !important;
+    margin-bottom: 30px;
 }
 .titulo-requisitos{
     font-size: large;

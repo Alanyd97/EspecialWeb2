@@ -1,24 +1,29 @@
 |<?php
-require_once("Model.php");
-require_once("View.php");
-
-require_once "View.php";
 require_once "Model.php";
-
+require_once "View.php";
+require_once "./BackEnd/generos/Model.php";
 class JuegosController{
     private $view;
     private $model;
+    private $generosModel;
   
     
     function __construct(){
       $this->view = new JuegosView();
       $this->model = new JuegosModel();
+      $this->generosModel = new GenerosModel();
     }
 
     //Envia datos al view (Juegos + generos)
     function DisplayJuegos(){
       $juegos = $this->model->GetJuegos();
-      $this->view->DisplayJuegos($juegos);
+      $generos = $this->generosModel->GetGeneros();
+      $this->view->DisplayJuegos($juegos, $generos);
+    }
+    function FiltroJuegos($id){
+      $juegos = $this->model->FiltroJuegos($id[0]);
+      $generos = $this->generosModel->GetGeneros();
+      $this->view->DisplayJuegos($juegos, $generos);
     }
     
     function DisplayJuego($id){

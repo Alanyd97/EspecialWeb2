@@ -12,6 +12,7 @@ class ConfigApp{
       'iniciarSesion'=>'LoginController#Login',
       #Juegos
       'juegos' => 'JuegosController#DisplayJuegos',
+      'filtro' => 'JuegosController#FiltroJuegos',
       'detalle'=>'JuegosController#DisplayJuego'
       
 

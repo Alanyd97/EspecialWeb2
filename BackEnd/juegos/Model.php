@@ -14,6 +14,12 @@ class JuegosModel {
         $juegos = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $juegos;
     }
+    public function FiltroJuegos($id){
+        $sentencia = $this->db->prepare( "SELECT * FROM juegos WHERE id_generos = $id");
+        $sentencia->execute();
+        $juegos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $juegos;
+    }
 
     public function GetJuego($id){
         $sentencia = $this->db->prepare( "SELECT * FROM juegos WHERE id_juegos = ?");

@@ -1,6 +1,11 @@
+/* FOOTER */
 .footer{
     height: 150px;
+    position: absolute;
+    width: 50%;
+    bottom: 0;
     background-color: #555555;
+    margin: 0 !important;
     
 }
 .social{

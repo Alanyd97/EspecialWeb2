@@ -10,16 +10,19 @@ class JuegosView{
 
     function DisplayJuegos($juegos, $generos = null){
         $this->smarty->display('./../templates/header.tpl');
+        $this->smarty->assign('basehref', BASE_URL);
         $this->smarty->assign('lista_juegos',$juegos);
-        $this->smarty->display('./../FrontEnd/templates/juegos.tpl');
+        $this->smarty->assign('lista_generos',$generos);
+        $this->smarty->display('./../templates/juegos.tpl');
         $this->smarty->display('./../templates/footer.tpl');
     }
    
     function DisplayJuego($juego, $requisito = null){
         $this->smarty->display('./../templates/header.tpl');
+        $this->smarty->assign('basehref', BASE_URL);
         $this->smarty->assign('juego', $juego);
         $this->smarty->assign('requisitos', $requisito);
-        $this->smarty->display('./../FrontEnd/templates/detalle.tpl');
+        $this->smarty->display('./../templates/detalle.tpl');
         $this->smarty->display('./../templates/footer.tpl');
     }
 }
