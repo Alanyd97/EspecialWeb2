@@ -11,7 +11,7 @@ class LoginView{
   public function DisplayLogin( $mensaje = ""){
     $this->smarty->display('./../templates/header.tpl');
     $this->smarty->assign('mensaje', $mensaje);
-    $this->smarty->display('./../FrontEnd/templates/login.tpl');
+    $this->smarty->display('./../templates/login.tpl');
     $this->smarty->display('./../templates/footer.tpl');
   }
 

@@ -1,6 +1,7 @@
 *{
     font-family: 'Roboto Mono';
 }
+/* LOGIN */
 div.container-fluid{
     background-color: black;
 }
@@ -14,7 +15,7 @@ div.container-fluid{
 }
 .login{
     background-color: #555555;
-    height: 80%;
+    height: 650px;
     padding: 0 15%;
 }
 .logo{

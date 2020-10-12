@@ -1,7 +1,7 @@
 <?php
 
 require_once('libs/Smarty.class.php');
-class generosview {
+class GenerosView {
     private $smarty;
 
     function __construct(){
@@ -13,6 +13,6 @@ class generosview {
         $this->smarty->assign('genero', $genero);
         $this->smarty->assign('titulo',"genero");
         $this->smarty->assign('admin', $id);
-
-        $this->smarty->display('./../FrontEnd/templates/login.tpl');
+        $this->smarty->display('./../templates/login.tpl');
     }
+}
