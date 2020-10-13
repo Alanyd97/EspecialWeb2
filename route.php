@@ -1,40 +1,25 @@
 <?php
 
-require_once "BackEnd/config/ConfigApp.php";
+//require_once "BackEnd/config/ConfigApp.php";
 require_once "BackEnd/login/Controller.php";
 require_once "BackEnd/juegos/Controller.php";
 require_once "BackEnd/generos/Controller.php";
+require_once "Router.php";
 
-$action = $_GET["action"];
-$controller_ = new LoginController();
+define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+define("JUEGOS", 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/juegos');
 
-function parseURL($url)
-{
-  $urlExploded = explode('/', $url);
-  $arrayReturn[ConfigApp::$ACTION] = $urlExploded[0];
-  $arrayReturn[ConfigApp::$PARAMS] = isset($urlExploded[1]) ? array_slice($urlExploded,1) : null;
-  //retortna un arreglo de 2 posiciones [accion][parametros]
-  return $arrayReturn;  
-}
+ 
+$r = new Router();
 
-if(isset($_GET['action'])){
-    //parseurl analiza la url seteada
-     $urlData = parseURL($_GET['action']);
-     $action = $urlData[ConfigApp::$ACTION]; //home
-     if(array_key_exists($action,ConfigApp::$ACTIONS)){
-         $params = $urlData[ConfigApp::$PARAMS];
-         $action = explode('#',ConfigApp::$ACTIONS[$action]); 
-         $controller = new $action[0]();
-         $metodo = $action[1];
-         if(isset($params) &&  $params != null){
-             echo $controller->$metodo($params);
-         }
-         else{
-             echo $controller->$metodo();
-         }
-     }else{
-         echo "error 404 pagina no encontrada";
-     }
- }
+$r->addRoute("inicio","GET","LoginController","DisplayLogin");
+$r->addRoute("iniciarSesion","GET","LoginController","Login");
+$r->addRoute("logOut","GET","LoginController","DisplayLogin");
+$r->addRoute("juegos", "GET", "JuegosController", "DisplayJuegos");
+$r->addRoute("detalle/:ID","GET","JuegosController", "DisplayJuego");
+$r->addRoute("filtro/:ID", "GET", "JuegosController", "FiltroJuegos");
 
-?>
+
+$r->setDefaultRoute("LoginController", "Login");
+
+$r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);
