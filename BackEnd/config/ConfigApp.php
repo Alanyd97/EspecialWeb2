@@ -9,11 +9,14 @@ class ConfigApp{
     public static $ACTIONS = [
       #Login
       ''=> 'LoginController#DisplayLogin',
+      'inicio'=> 'LoginController#DisplayLogin',
       'iniciarSesion'=>'LoginController#Login',
+      'logOut' => 'LoginController#LogOut',
       #Juegos
       'juegos' => 'JuegosController#DisplayJuegos',
       'filtro' => 'JuegosController#FiltroJuegos',
       'detalle'=>'JuegosController#DisplayJuego'
+
       
 
 

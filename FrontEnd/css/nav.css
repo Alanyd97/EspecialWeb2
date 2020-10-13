@@ -1,0 +1,13 @@
+.nav-app{
+    position: absolute;
+    margin-top: -25px;
+    background-color: black;
+}
+.links-nav{
+ display: inline-block;
+ width: 20%;
+}
+.links-container{
+    width: 50%;
+    margin-left: 10%;
+}

@@ -1,9 +1,6 @@
 {include file="./header.tpl"}
-<<<<<<< HEAD
 {include file="./nav.tpl"}
-=======
-
->>>>>>> 86439348a6dcc649519b6e5419431ff619740371
+<div class="container-fluid">
 <div class="row d-flex justify-content-center">
   <div class="col-5 d-flex align-items-center justify-content-center flex-wrap detalle-container">
       <img src="./../FrontEnd/images/8cbe3bc8-8559-41eb-923d-cc57b9514e7c.jpeg" class="img-fluid img-portada" alt="">
@@ -51,6 +48,7 @@
           </tr>
         </tbody>
       </table>
+</div>
 </div>
 </div>
    

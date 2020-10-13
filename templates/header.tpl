@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./FrontEnd/css/login.css">
+    <link rel="stylesheet" href="./FrontEnd/css/nav.css">
     <link rel="stylesheet" href="./FrontEnd/css/juegos.css">
     <link rel="stylesheet" href="./FrontEnd/css/style.css">
     <link rel="stylesheet" href="./FrontEnd/css/footer.css">
@@ -14,4 +15,3 @@
     <title>Royal Games</title>
 </head>
 <body>
-<div class="container-fluid">

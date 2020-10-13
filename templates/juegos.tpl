@@ -1,10 +1,11 @@
 
 {include file="./header.tpl"}
-
 {include file="./nav.tpl"}
+
+<div class="container-fluid">
   <div class="row d-flex justify-content-center">
       <div class="col-2 d-flex contenedor-lista">
-          <h5 class="align-self-start justify-self-center categorias-titulo">Categorias</h5>
+          <h5 class="align-self-start justify-self-center categorias-titulo">Generos</h5>
           <ul class="align-self-start justify-self-center lista-generos">
           {foreach from=$lista_generos item=genero}
               <li ><a href='filtro/{$genero->id_generos}'>{$genero->nombres}</a></li>
@@ -37,6 +38,7 @@
             {/if}
             
       </div>
+  </div>
   </div>
 {include file="./footer.tpl"}
 {include file="./footerApp.tpl"}

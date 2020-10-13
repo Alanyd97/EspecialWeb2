@@ -1,4 +1,7 @@
 {include file="./header.tpl"}
+{include file="./nav.tpl"}
+
+<div class="container-fluid">
 <div class="row">
     <div class="col-8">
         <img src="./FrontEnd/images/portada.jpg" class="portada" >
@@ -23,6 +26,7 @@
           </form>
     </div>
     </div>
+</div>
 </div>
 {include file="./footer.tpl"}
 {include file="./footerApp.tpl"}

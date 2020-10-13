@@ -8,9 +8,10 @@ class LoginView{
     $this->smarty->assign('basehref', BASE_URL);
   }
   
-  public function DisplayLogin( $mensaje = ""){
+  public function DisplayLogin( $mensaje = "", $usr = 2){
     $this->smarty->display('./../templates/header.tpl');
     $this->smarty->assign('mensaje', $mensaje);
+    $this->smarty->assign('usuario', $usr);
     $this->smarty->display('./../templates/login.tpl');
     $this->smarty->display('./../templates/footer.tpl');
   }

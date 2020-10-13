@@ -26,7 +26,7 @@ class LoginController{
     $clave = $_POST['clave'];
     $dbUser = $this->modelUsuario->GetUsuario($nombre);
     if (!empty($dbUser)){
-      if ($clave == $dbUser->clave){
+      if (password_verify($clave, $dbUser->clave)){
           session_start();
           $_SESSION['user'] =  $dbUser->nombre;
           $_SESSION['id_usuario'] =  $dbUser->id_usuario;
@@ -41,9 +41,10 @@ class LoginController{
   }
   
   // LOGOUT
-  public function Logout(){
+  public function LogOut(){
     session_start();
     session_destroy();
-    header(LOGIN);
+    $this->DisplayLogin();
+    header();
   }
 }

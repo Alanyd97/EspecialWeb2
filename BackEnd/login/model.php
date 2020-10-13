@@ -17,5 +17,8 @@ class UsuarioModel{
     $usuario = $sentencia->fetch(PDO::FETCH_OBJ);   
     return $usuario;
   }
-  
+  function AddUsuario($nombre,$clave, $admin){
+    $sentencia = $this->db->prepare("INSERT INTO usuario(nombre,clave, admin) VALUES(?,?,?)");
+    $sentencia->execute(array($nombre,$clave, $admin));
+  }
 }
