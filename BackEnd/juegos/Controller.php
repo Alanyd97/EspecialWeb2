@@ -28,6 +28,7 @@ class JuegosController{
       }
      
     }
+    
     function FiltroJuegos($id){
       session_start();
       $juegos = $this->model->FiltroJuegos($id[0]);

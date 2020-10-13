@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2020 a las 13:51:45
+-- Tiempo de generación: 13-10-2020 a las 07:49:18
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -51,7 +51,7 @@ CREATE TABLE `juegos` (
   `id_juegos` int(11) NOT NULL,
   `titulo` text NOT NULL,
   `sinopsis` text NOT NULL,
-  `requisitos` text NOT NULL,
+  `id_requisito` int(50) NOT NULL,
   `precio` int(50) NOT NULL,
   `id_generos` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -60,9 +60,10 @@ CREATE TABLE `juegos` (
 -- Volcado de datos para la tabla `juegos`
 --
 
-INSERT INTO `juegos` (`id_juegos`, `titulo`, `sinopsis`, `requisitos`, `precio`, `id_generos`) VALUES
-(1, 'Hitman Absolution', 'HITMAN: ABSOLUTION sigue los pasos del asesino original mientras trabaja en su contrato más personal hasta la fecha. Traicionado por la Agencia y buscado por la policía, el Agente 47 se ve abocado a la búsqueda de la redención en un mundo corrupto y retorcido.', '1', 1212, 1),
-(2, 'CS GO', 'Counter Strike es historia viva del videojuego moderno. Más allá de ser una de las licencias clave de Valve, se ha consolidado como uno de los pilares sobre los que se sostienen las bases de los shooters actuales, así como uno de los máximos embajadores del juego online y los eSports a nivel mundial.  Eso ya son palabras mayores.', '2', 0, 2);
+INSERT INTO `juegos` (`id_juegos`, `titulo`, `sinopsis`, `id_requisito`, `precio`, `id_generos`) VALUES
+(1, 'Hitman Absolution', 'HITMAN: ABSOLUTION sigue los pasos del asesino original mientras trabaja en su contrato más personal hasta la fecha. Traicionado por la Agencia y buscado por la policía, el Agente 47 se ve abocado a la búsqueda de la redención en un mundo corrupto y retorcido.', 1, 1212, 1),
+(2, 'CS GO', 'Counter Strike es historia viva del videojuego moderno. Más allá de ser una de las licencias clave de Valve, se ha consolidado como uno de los pilares sobre los que se sostienen las bases de los shooters actuales, así como uno de los máximos embajadores del juego online y los eSports a nivel mundial.  Eso ya son palabras mayores.', 2, 0, 2),
+(3, 'A Total war saca : TROY', 'In this legendary age, heroes walk the earth. In an act that shocks the world, audacious Paris, prince of Troy, elopes with the beautiful queen of Sparta. As they sail away, King Menelaus curses her name. He vows to bring his wife home – whatever the cost!', 1, 1231, 1);
 
 -- --------------------------------------------------------
 
@@ -105,7 +106,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `clave`, `admin`) VALUES
-(1, 'asd', 'asd', 0);
+(1, 'asds', 'asd', 0),
+(7, 'asd', '$2y$10$Nj0PaSNUoVBW4DB8m8DmZewVKM96VQn0YQfIVtLtEj6UkqqGCteM2', 0);
 
 --
 -- Índices para tablas volcadas
@@ -122,7 +124,8 @@ ALTER TABLE `generos`
 --
 ALTER TABLE `juegos`
   ADD PRIMARY KEY (`id_juegos`),
-  ADD KEY `id_generos` (`id_generos`);
+  ADD KEY `id_generos` (`id_generos`),
+  ADD KEY `id_requisito` (`id_requisito`);
 
 --
 -- Indices de la tabla `requisitos`
@@ -163,7 +166,7 @@ ALTER TABLE `requisitos`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_usuario` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
