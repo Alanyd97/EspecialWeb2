@@ -1,6 +1,14 @@
 *{
     color:white;
     font-family: 'Roboto Mono';
+    
+}
+button{
+    background-color: #FFB41A !important;
+    border: 0;
+}
+body{
+    padding : 0 !important;
 }
 .container-fluid{
     padding: 1% 0 0 0 !important;

@@ -15,7 +15,8 @@ class ConfigApp{
       #Juegos
       'juegos' => 'JuegosController#DisplayJuegos',
       'filtro' => 'JuegosController#FiltroJuegos',
-      'detalle'=>'JuegosController#DisplayJuego'
+      'detalle'=>'JuegosController#DisplayJuego',
+      'editar'=>'JuegosController#EditarJuego'
 
       
 

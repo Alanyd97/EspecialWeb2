@@ -15,15 +15,15 @@ class JuegosModel {
         return $juegos;
     }
     public function FiltroJuegos($id){
-        $sentencia = $this->db->prepare( "SELECT * FROM juegos WHERE id_generos = $id");
-        $sentencia->execute();
+        $sentencia = $this->db->prepare( "SELECT * FROM juegos WHERE id_generos = ?");
+        $sentencia->execute(array($id));
         $juegos = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $juegos;
     }
 
     public function GetJuego($id){
         $sentencia = $this->db->prepare( "SELECT * FROM juegos WHERE id_juegos = ?");
-        $sentencia->execute($id);
+        $sentencia->execute(array($id));
         $juego = $sentencia->fetch(PDO::FETCH_OBJ);
         return $juego;
     }
@@ -34,9 +34,9 @@ class JuegosModel {
         return  $sentencia->fetch(PDO::FETCH_OBJ);
     }
 
-    public function EditarJuegos($titulo,$sinopsis,$requisitos,$precio,$id_genero,$id){
-        $sentencia = $this->db->prepare("UPDATE juegos SET titulo=?, sinopsis=?, requisitos=?, precio=?, id_generoFK=? WHERE id_juegos=?");
-        $sentencia->execute(array($titulo,$sinopsis,$requisitos,$precio,$id_genero,$id));
+    public function EditarJuegos($titulo,$sinopsis,$precio, $id){
+        $sentencia = $this->db->prepare("UPDATE juegos SET titulo=?, sinopsis=?, precio=? WHERE id_juegos=?");
+        $sentencia->execute(array($titulo,$sinopsis,$precio, $id));
     }
 
     public function InsertarJuegos($id,$titulo,$sinopsis,$requisitos,$precio,$id_genero){

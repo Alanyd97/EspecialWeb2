@@ -8,7 +8,7 @@
     {if $usuario == 0}
         <li class="links-nav"><a href="logOut" class="link " >Log Out</a></li>
     {elseif $usuario == 2}
-        <li class="links-nav"><a class="link" href="{BASE_URL}inicio">Log In</a></li>
+        <li class="links-nav"><a class="link" href="login">Log In</a></li>
     {/if}
     </ul>
  </div>
