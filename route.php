@@ -12,15 +12,17 @@ define("LOGIN", 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["
 
  
 $r = new Router();
-
+// Login 
 $r->addRoute("iniciarSesion","POST","LoginController","Login");
 $r->addRoute("logOut","GET","LoginController","LogOut");
+$r->addRoute("login","GET","LoginController", "DisplayLogin");
+// Juegos
 $r->addRoute("juegos", "GET", "JuegosController", "DisplayJuegos");
 $r->addRoute("detalle/:ID","GET","JuegosController", "DisplayJuego");
 $r->addRoute("filtro/:ID", "GET", "JuegosController", "FiltroJuegos");
 $r->addRoute("editar/:ID", "POST", "JuegosController", "EditarJuego");
-$r->addRoute("login","GET","LoginController", "DisplayLogin");
-
+//Generos 
+$r->addRoute("eliminarGenero", "POST", "GenerosController", "EliminarGenero");
 
 $r->setDefaultRoute("LoginController", "DisplayLogin");
 

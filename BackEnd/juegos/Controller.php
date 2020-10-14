@@ -21,11 +21,6 @@ class JuegosController{
       session_start();
       if (isset($_SESSION['admin'])){
         $usuario = $_SESSION['admin'];
-        var_dump($usuario);
-        var_dump($usuario);
-        var_dump($usuario);
-        var_dump($usuario);
-        var_dump($usuario);
         $this->view->DisplayJuegos($juegos, $generos, $usuario);
       }else{
         $this->view->DisplayJuegos($juegos, $generos);

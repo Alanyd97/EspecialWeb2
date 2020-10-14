@@ -23,11 +23,6 @@ class LoginController{
     session_start();
     if (isset($_SESSION['admin'])){
       session_abort();
-    var_dump(isset($_SESSION['admin'])."asd");
-    var_dump(isset($_SESSION['admin']));
-    var_dump(isset($_SESSION['admin']));
-    var_dump(isset($_SESSION['admin']));
-    var_dump(isset($_SESSION['admin']));
       $this->juegosController->DisplayJuegos();
       header(JUEGOS);
     }else{  
