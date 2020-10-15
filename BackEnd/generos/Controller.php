@@ -16,7 +16,9 @@ class GenerosController extends Seguridad {
     public function InsertarGeneros(){
         if ($this->checkLoggedIn()){session_abort();
             $genero = $_POST['genero'];
-            $this->model->InsertarGeneros($genero);
+            if (isset($genero)){
+                $this->model->InsertarGeneros($genero);
+            }
             $this->juegosController->DisplayJuegos();
         }else{
             $this->juegosController->DisplayJuegos();

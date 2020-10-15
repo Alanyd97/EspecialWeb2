@@ -19,7 +19,8 @@ class JuegosController extends Seguridad{
     public function DisplayJuegos(){
       $juegos = $this->model->GetJuegos();
       $generos = $this->generosModel->GetGeneros();
-      if ($this->checkLoggedIn()){ session_abort();
+      if ($this->checkLoggedIn()){ 
+          session_abort();
           $usuario = $_SESSION['admin'];
           $this->view->DisplayJuegos($juegos, $generos, $usuario);
       }else{
@@ -28,14 +29,17 @@ class JuegosController extends Seguridad{
      
     }
     public function InsertarJuegos(){
-      if ($this->checkLoggedIn()){  session_abort();
+      if ($this->checkLoggedIn()){  
+        session_abort();
         $titulo = $_POST['tituloAgregar'];
         $sinopsis = $_POST['sinopsisAgregar'];
         $precio = $_POST['precioAgregar'];
         $genero = $_POST['genero'];
-        $this->model->InsertarJuegos($titulo, $sinopsis, 2, $precio, $genero);
-        $this->DisplayJuegos();
-        header(JUEGOS);
+        if (isset($titulo) && isset($sinopsis) && isset($precio) && isset($genero)){
+          $this->model->InsertarJuegos($titulo, $sinopsis, 2, $precio, $genero);
+          $this->DisplayJuegos();
+          header(JUEGOS);
+        }
       }else{
           $this->DisplayJuegos();
       }
@@ -58,7 +62,8 @@ class JuegosController extends Seguridad{
       $idJuego = $id[':ID'];
       $juego = $this->model->GetJuego($idJuego);
       $requisitos = $this->model->GetRequisitos($juego->id_requisito);
-      if ($this->checkLoggedIn()){ session_abort();
+      if ($this->checkLoggedIn()){ 
+        session_abort();
         $usuario = $_SESSION['admin'];
         $this->view->DisplayJuego($juego, $requisitos, $usuario, $mensaje);
       }else{
@@ -68,18 +73,17 @@ class JuegosController extends Seguridad{
     }
 
     public function EditarJuego($id){
-      if ($this->checkLoggedIn()){ session_abort();
-        if (isset($_POST['titulo'])){
-          $titulo = $_POST['titulo'];
-          $precio = $_POST['precio'];
-          $sinopsis = $_POST['sinopsis'];
-          if ($titulo != '' && $precio != '' && $sinopsis != ''){
-            $this->model->EditarJuegos($titulo, $sinopsis, $precio, $id[':ID']);
-            $this->DisplayJuego($id);
-          }else{
-            $this->DisplayJuego($id, "Ingresar todos los campos antes de guardar");
-          }
-        } 
+      if ($this->checkLoggedIn()){ 
+        session_abort();
+        $titulo = $_POST['titulo'];
+        $precio = $_POST['precio'];
+        $sinopsis = $_POST['sinopsis'];
+        if (isset($titulo) && isset($sinopsis) && isset($precio)){
+          $this->model->EditarJuegos($titulo, $sinopsis, $precio, $id[':ID']);
+          $this->DisplayJuego($id);
+        }else{
+          $this->DisplayJuego($id, "Ingresar todos los campos antes de guardar");
+        }
       }else{
           $this->view->DisplayJuego($juego, $requisitos);
       }
