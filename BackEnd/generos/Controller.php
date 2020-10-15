@@ -31,18 +31,18 @@ class GenerosController {
         $this->juegosController->DisplayJuegos();
         
     }
-    public function EditarGenero(){
+    public function EditarGenero($params = null){
         $nombre = $_POST['editarGenero'];
-       var_dump("----". $nombre);
-       echo "tu mama";
-        // $this->model->EditarGeneros(,$_POST['id_generos']);
+        $id = $params[':ID'];
+        $this->model->EditarGeneros($nombre,$id);
+        $this->juegosController->DisplayJuegos();
     }
     
     public function EliminarGenero($params = null) {
-            $id = $params[':ID'];
-            $this->model->BorrarGenero($id);
-            $this->juegosController->DisplayJuegos();
-        }
+        $id = $params[':ID'];
+        $this->model->BorrarGenero($id);
+        $this->juegosController->DisplayJuegos();
+    }
 
 
 

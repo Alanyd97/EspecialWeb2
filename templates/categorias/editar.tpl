@@ -15,7 +15,7 @@
       </div>
       <div class="modal-body">
           {* FOMRULARIO EDITAR CATEGORIA *}
-          <form action="editarGenero/{$genero->id_generos}" method="post">
+          <form action="editarGenero/{{$genero->id_generos}}" method="post">
             <div class="form-group">
               <label for="exampleFormControlInput1">Nombre</label>
               <input type="text" name="editarGenero"  id="editarGenero" class="form-control" placeholder="Genero...">
