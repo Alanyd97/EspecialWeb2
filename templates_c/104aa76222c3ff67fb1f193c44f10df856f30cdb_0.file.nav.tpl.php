@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-14 21:03:42
+/* Smarty version 3.1.34-dev-7, created on 2020-10-15 15:23:38
   from 'C:\xampp\htdocs\EspecialWeb2\templates\nav.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f874b8e0cdf01_01536621',
+  'unifunc' => 'content_5f884d5ab2eec8_48931559',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '104aa76222c3ff67fb1f193c44f10df856f30cdb' => 
     array (
       0 => 'C:\\xampp\\htdocs\\EspecialWeb2\\templates\\nav.tpl',
-      1 => 1602702051,
+      1 => 1602681286,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f874b8e0cdf01_01536621 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f884d5ab2eec8_48931559 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="navbar nav-app d-flex justify-content-start" >
   <a class="navbar-brand" href="<?php echo BASE_URL;?>
 ">

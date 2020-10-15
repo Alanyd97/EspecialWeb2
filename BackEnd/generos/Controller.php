@@ -26,20 +26,22 @@ class GenerosController {
         $this->view->ShowGeneros($generos,$id);
     }
     public function InsertarGeneros(){
-         $this->model->InsertarGeneros($_POST['genero']);
-         header("Location: ".BASE_URL);
+        $genero = $_POST['genero'];
+        $this->model->InsertarGeneros($genero);
+        $this->juegosController->DisplayJuegos();
         
     }
     public function EditarGenero(){
-       
-        $this->model->EditarGeneros($_POST['nombres'],$_POST['id_generos']);
-        header("Location: " . BASE_URL."juegos");
+        $nombre = $_POST['editarGenero'];
+       var_dump("----". $nombre);
+       echo "tu mama";
+        // $this->model->EditarGeneros(,$_POST['id_generos']);
     }
     
     public function EliminarGenero($params = null) {
             $id = $params[':ID'];
             $this->model->BorrarGenero($id);
-            header("Location: " . BASE_URL."juegos");
+            $this->juegosController->DisplayJuegos();
         }
 
 

@@ -24,8 +24,7 @@ $r->addRoute("filtro/:ID", "GET", "JuegosController", "FiltroJuegos");
 $r->addRoute("editar/:ID", "POST", "JuegosController", "EditarJuego");
 //Generos 
 $r->addRoute("deleteG/:ID", "GET", "GenerosController", "EliminarGenero");
-$r->addRoute("editG/:ID", "GET", "GenerosController", "EditarGenero");
-$r->addRoute("edit", "POST", "GenerosController", "EditarGenero");
+$r->addRoute("editarGenero", "GET", "GenerosController", "EditarGenero");
 $r->addRoute("agregarGenero","POST","GenerosController","InsertarGeneros");
 
 
