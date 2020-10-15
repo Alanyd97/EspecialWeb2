@@ -42,6 +42,10 @@
           
   </div>
   <div class="col-8">
+  
+      <div class="col-12 d-flex justify-content-end"> 
+        {include file="./agregarJuego.tpl"} 
+      </div>
         {if sizeof($lista_juegos) == 0}
           <h4 class="mt-3"> No hay ningun juego con ese genero </h4>
         {else}

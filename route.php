@@ -18,7 +18,7 @@ $r->addRoute("logOut","GET","LoginController","LogOut");
 $r->addRoute("login","GET","LoginController", "DisplayLogin");
 // Juegos
 $r->addRoute("juegos", "GET", "JuegosController", "DisplayJuegos");
-$r->addRoute("agregar", "POST", "JuegosController", "InsertarJuegos");
+$r->addRoute("agregarJuego", "POST", "JuegosController", "InsertarJuegos");
 $r->addRoute("detalle/:ID","GET","JuegosController", "DisplayJuego");
 $r->addRoute("filtro/:ID", "GET", "JuegosController", "FiltroJuegos");
 $r->addRoute("editar/:ID", "POST", "JuegosController", "EditarJuego");

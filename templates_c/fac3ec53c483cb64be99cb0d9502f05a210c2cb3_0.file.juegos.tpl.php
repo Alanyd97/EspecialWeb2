@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-15 15:40:51
+/* Smarty version 3.1.34-dev-7, created on 2020-10-15 16:37:53
   from 'C:\xampp\htdocs\EspecialWeb2\templates\juegos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f885163299b28_19498609',
+  'unifunc' => 'content_5f885ec105ffe0_92993040',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fac3ec53c483cb64be99cb0d9502f05a210c2cb3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\EspecialWeb2\\templates\\juegos.tpl',
-      1 => 1602769250,
+      1 => 1602772672,
       2 => 'file',
     ),
   ),
@@ -22,11 +22,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./categorias/agregar.tpl' => 1,
     'file:./categorias/editar.tpl' => 1,
     'file:./categorias/eliminar.tpl' => 1,
+    'file:./agregarJuego.tpl' => 1,
     'file:./footer.tpl' => 1,
     'file:./footerApp.tpl' => 1,
   ),
 ),false)) {
-function content_5f885163299b28_19498609 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f885ec105ffe0_92993040 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:./header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -90,6 +91,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           
   </div>
   <div class="col-8">
+  
+      <div class="col-12 d-flex justify-content-end"> 
+        <?php $_smarty_tpl->_subTemplateRender("file:./agregarJuego.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?> 
+      </div>
         <?php if (sizeof($_smarty_tpl->tpl_vars['lista_juegos']->value) == 0) {?>
           <h4 class="mt-3"> No hay ningun juego con ese genero </h4>
         <?php } else { ?>
