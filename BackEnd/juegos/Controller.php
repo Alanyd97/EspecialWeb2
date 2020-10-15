@@ -15,7 +15,7 @@ class JuegosController{
     }
 
     //Envia datos al view (Juegos + generos)
-    function DisplayJuegos(){
+    public function DisplayJuegos(){
       $juegos = $this->model->GetJuegos();
       $generos = $this->generosModel->GetGeneros();
       session_start();
@@ -37,7 +37,7 @@ class JuegosController{
       header(JUEGOS);
   }
     
-    function FiltroJuegos($id){
+    public function FiltroJuegos($id){
       session_start();
       $idGenero = $id[':ID'];
       $juegos = $this->model->FiltroJuegos($idGenero);
@@ -50,7 +50,7 @@ class JuegosController{
       }
     }
     
-    function DisplayJuego($id, $mensaje = ''){
+    public function DisplayJuego($id, $mensaje = ''){
       $idJuego = $id[':ID'];
       $juego = $this->model->GetJuego($idJuego);
       $requisitos = $this->model->GetRequisitos($juego->id_requisito);
@@ -64,10 +64,8 @@ class JuegosController{
 
     }
 
-    function EditarJuego($id){
-
+    public function EditarJuego($id){
       if (isset($_POST['titulo'])){
-
         $titulo = $_POST['titulo'];
         $precio = $_POST['precio'];
         $sinopsis = $_POST['sinopsis'];
@@ -80,4 +78,10 @@ class JuegosController{
       }
     }
 
+    public function EliminarJuego(){
+      $id = $_POST['juego'];
+      $this->model->BorrarJuegos($id);
+      $this->DisplayJuegos();
+      header(JUEGOS);
+    }
 }

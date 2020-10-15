@@ -1,5 +1,5 @@
-{include file="./header.tpl"}
-{include file="./nav.tpl"}
+{include file="./../header.tpl"}
+{include file="./../nav.tpl"}
 <div class="container-fluid">
 <div class="row d-flex justify-content-center">
   <div class="col-5 d-flex align-items-center justify-content-center flex-wrap detalle-container">
@@ -94,5 +94,5 @@
 </div>
 </div>
    
-{include file="./footerApp.tpl"}
-{include file="./footer.tpl"}
+{include file="./../footerApp.tpl"}
+{include file="./../footer.tpl"}

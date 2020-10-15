@@ -1,34 +1,37 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-15 16:37:53
+/* Smarty version 3.1.34-dev-7, created on 2020-10-15 18:24:29
   from 'C:\xampp\htdocs\EspecialWeb2\templates\juegos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f885ec105ffe0_92993040',
+  'unifunc' => 'content_5f8877bda4f8b4_48851225',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fac3ec53c483cb64be99cb0d9502f05a210c2cb3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\EspecialWeb2\\templates\\juegos.tpl',
-      1 => 1602772672,
+      1 => 1602775741,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:./header.tpl' => 1,
+    'file:./nav.tpl' => 1,
     'file:./categorias/agregar.tpl' => 1,
     'file:./categorias/editar.tpl' => 1,
     'file:./categorias/eliminar.tpl' => 1,
-    'file:./agregarJuego.tpl' => 1,
+    'file:./juegos/eliminarJuegos.tpl' => 1,
+    'file:./juegos/agregarJuego.tpl' => 1,
     'file:./footer.tpl' => 1,
     'file:./footerApp.tpl' => 1,
   ),
 ),false)) {
-function content_5f885ec105ffe0_92993040 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f8877bda4f8b4_48851225 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:./header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+$_smarty_tpl->_subTemplateRender("file:./nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <div class="container-fluid">
@@ -93,7 +96,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
   <div class="col-8">
   
       <div class="col-12 d-flex justify-content-end"> 
-        <?php $_smarty_tpl->_subTemplateRender("file:./agregarJuego.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+      <?php $_smarty_tpl->_subTemplateRender("file:./juegos/eliminarJuegos.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?> 
+        <?php $_smarty_tpl->_subTemplateRender("file:./juegos/agregarJuego.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?> 
       </div>
         <?php if (sizeof($_smarty_tpl->tpl_vars['lista_juegos']->value) == 0) {?>
