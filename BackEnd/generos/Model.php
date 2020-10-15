@@ -21,9 +21,9 @@ class GenerosModel {
         return $generos;
     }
 
-    public function InsertarGeneros($nombres,$subgeneros){
-        $sentencia = $this->db->prepare("INSERT INTO generos(nombres,subgeneros) VALUES(?,?)");
-        $sentencia->execute(array($nombres,$subgeneros));
+    public function InsertarGeneros($nombres){
+        $sentencia = $this->db->prepare("INSERT INTO generos(nombres) VALUES(?)");
+        $sentencia->execute(array($nombres));
     }
 
     public function BorrarGenero($id){
@@ -31,8 +31,8 @@ class GenerosModel {
         $sentencia->execute(array($id));
     }
 
-    public function EditarGeneros($id,$nombres,$subgeneros){
-        $sentencia = $this->db->prepare("UPDATE generos SET nombres=?,subgeneros=? WHERE id_generos=?");
-        $sentencia->execute(array($id,$nombres,$subgeneros));
+    public function EditarGeneros($id,$nombres){
+        $sentencia = $this->db->prepare("UPDATE generos SET nombres=? WHERE id_generos=?");
+        $sentencia->execute(array($id,$nombres));
     }
 }

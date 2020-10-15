@@ -26,32 +26,30 @@
                   <div class="modal-body" >
 
                       {* FOMRULARIO AGREGAR CATEGORIA *}
-                      <form action="agregarCategoria" method="post">
+                      <form action="agregarGenero" method="post">
                         <div class="form-group">
                           <label for="exampleFormControlInput1">Nuevo Genero</label>
                           <input type="text" name="genero" class="form-control" placeholder="Genero...">
                         </div>
-                      </form>
-                      <button type="submit" class="btn btn-primary">Agregar</button>
+                      <input type="submit" class="btn btn-success" value="Insertar">
+                      </form> 
                   </div>
-
-                  <div class="modal-body" >
-
-                    <form action="eliminarGenero" method="post">
-                    <label for="exampleFormControlInput1">Eliminar Genero</label>
-                      <small style="color: red;">(Al borrar una categoria, se borraran los juegos que dependan de esta.) </small>          
-                      <select class="form-control" name="eliminar" id="eliminar">
-                        {foreach from=$lista_generos item=genero}
-                          <option value="{$genero->id_genero}" id="eliminar" name="eliminar" style="color: black">{$genero->nombres}</option>
-                        {/foreach}
-                      </select>
-                    </form>
-                    <button type="submit" class="btn btn-primary">Eliminar</button>
-              </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
+                   <table>
+        <thead>
+            <th>genero</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </thead>
+        <tbody >
+            {foreach from=$lista_generos item=genero}
+                <tr>    
+            <td>{$genero->nombres}</td>
+            <td><button class="btnEditar"><a href ="editG/{$genero->id_generos}">Editar</a></button></td>
+            <td><button class="btnEliminar"><a href="deleteG/{$genero->id_generos}">Borrar</a></button></td>
+            </tr>
+            {/foreach}
+        </tbody>
+         </table>
                 </div>
               </div>
               </div>
@@ -98,6 +96,23 @@
             
       </div>
   </div>
+    <div class="col-md-6">
+      <div class="completar">
+        <form action="agregar" method="post">
+          <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Titulo...">
+          <input type="text" name="sinopsis" id="sinopsis" class="form-control" placeholder="Sinopsis...">
+          <input type="text" name="precio" id="precio" class="form-control" placeholder="Precio...">
+          <select class="form-control" name="id_generos">
+             {foreach from=$lista_generos item=genero}
+            <option value="{$genero->id_genero}">{$genero->nombres}</option>
+             {/foreach}
+                </select>
+               <input type="submit" class="btn btn-success" value="Insertar">
+         
+        </form>
+      </div>
+    </div>
+
 </div>
 {include file="./footer.tpl"}
 {include file="./footerApp.tpl"}

@@ -18,12 +18,18 @@ $r->addRoute("logOut","GET","LoginController","LogOut");
 $r->addRoute("login","GET","LoginController", "DisplayLogin");
 // Juegos
 $r->addRoute("juegos", "GET", "JuegosController", "DisplayJuegos");
+$r->addRoute("agregar", "POST", "JuegosController", "InsertarJuegos");
 $r->addRoute("detalle/:ID","GET","JuegosController", "DisplayJuego");
 $r->addRoute("filtro/:ID", "GET", "JuegosController", "FiltroJuegos");
 $r->addRoute("editar/:ID", "POST", "JuegosController", "EditarJuego");
 //Generos 
-$r->addRoute("eliminarGenero", "POST", "GenerosController", "EliminarGenero");
+$r->addRoute("deleteG/:ID", "GET", "GenerosController", "EliminarGenero");
+$r->addRoute("editG/:ID", "GET", "GenerosController", "EditarGenero");
+$r->addRoute("edit", "POST", "GenerosController", "EditarGenero");
+$r->addRoute("agregarGenero","POST","GenerosController","InsertarGeneros");
+
 
 $r->setDefaultRoute("LoginController", "DisplayLogin");
+
 
 $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);

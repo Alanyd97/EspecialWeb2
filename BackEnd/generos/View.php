@@ -8,6 +8,8 @@ class GenerosView {
 
         $this->smarty = new Smarty();
         $this->smarty->assign('BASE_URL',BASE_URL);
+
+      
     }
     public function ShowGenero($genero,$id) {
         $this->smarty->assign('genero', $genero);
@@ -15,4 +17,5 @@ class GenerosView {
         $this->smarty->assign('admin', $id);
         $this->smarty->display('./../templates/login.tpl');
     }
+
 }

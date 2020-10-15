@@ -27,6 +27,10 @@ class JuegosController{
       }
      
     }
+    public function InsertarJuegos(){
+      $this->model->InsertarJuegos($_POST['id:'],$_POST['titulo'],$_POST['sinopsis'],$_POST['id_requisito'],$_POST['precio'],$_POST['id_generos']);
+      header("Location: " .BASE_URL."juegos");
+  }
     
     function FiltroJuegos($id){
       session_start();

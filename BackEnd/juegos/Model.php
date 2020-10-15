@@ -39,9 +39,9 @@ class JuegosModel {
         $sentencia->execute(array($titulo,$sinopsis,$precio, $id));
     }
 
-    public function InsertarJuegos($id,$titulo,$sinopsis,$requisitos,$precio,$id_genero){
-        $sentencia = $this->db->prepare("INSERT INTO juegos(id_juegos, titulo, sinopsis, requisitos, precio, id_genero) VALUES(?,?,?,?,?,?)");
-        $sentencia->execute(array($id,$titulo,$sinopsis,$requisitos,$precio,$id_genero));
+    public function InsertarJuegos($id,$titulo,$sinopsis,$id_requisito,$precio,$id_generos){
+        $sentencia = $this->db->prepare("INSERT INTO juegos(id_juegos, titulo, sinopsis, id_requisito, precio, id_generos) VALUES(?,?,?,?,?,?)");
+        $sentencia->execute(array($id,$titulo,$sinopsis,$id_requisito,$precio,$id_generos));
     }
 
     public function BorrarJuegos($id){
