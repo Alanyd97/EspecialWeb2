@@ -3,8 +3,9 @@
 require_once "View.php";
 require_once "Model.php";
 require_once "./BackEnd/juegos/Controller.php";
+require_once "./BackEnd/seguridad/Seguridad.php";
 
-class LoginController{
+class LoginController extends Seguridad{
   private $view;
   private $modelUsuario;
   private $juegosController;
@@ -20,8 +21,7 @@ class LoginController{
   
   // MUESTRA EL LOGIN
   public function DisplayLogin(){
-    session_start();
-    if (isset($_SESSION['admin'])){
+    if ($this->checkLoggedIn()){
       session_abort();
       $this->juegosController->DisplayJuegos();
       header(JUEGOS);
@@ -49,8 +49,6 @@ class LoginController{
       }else{
         $this->view->DisplayLogin("No existe el usuario");
       }
-    
-    
   }
   
   // LOGOUT

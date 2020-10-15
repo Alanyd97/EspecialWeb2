@@ -13,10 +13,10 @@
         </div>
 
         {* GENEROS LISTADO *}
-        <div class="row justify-content-center">
+        <div class="row">
         {if $usuario == 0}
-          <div class="col-8"> 
-            <ul class="align-self-start justify-self-center lista-generos">
+          <div class="col-11"> 
+            <ul class=" lista-generos">
                 {foreach from=$lista_generos item=genero}
                   <li>
                     <a href='filtro/{$genero->id_generos}'>{$genero->nombres}</a>
@@ -44,7 +44,7 @@
   <div class="col-8">
   
       <div class="col-12 d-flex justify-content-end"> 
-      {include file="./juegos/eliminarJuegos.tpl"} 
+        {include file="./juegos/eliminarJuegos.tpl"} 
         {include file="./juegos/agregarJuego.tpl"} 
       </div>
         {if sizeof($lista_juegos) == 0}

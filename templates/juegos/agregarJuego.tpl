@@ -32,7 +32,7 @@
                 </div>   
                 <div class="form-group">
                 <label for="exampleFormControlSelect1">Genero</label>
-                    <select class="form-control" name="genero" >
+                    <select class="form-control" name="genero">
                         {foreach from=$lista_generos item=genero}
                             <option value="{$genero->id_generos}">{$genero->nombres}</option></li>
                         {/foreach}

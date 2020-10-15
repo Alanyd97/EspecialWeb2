@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-15 18:24:29
+/* Smarty version 3.1.34-dev-7, created on 2020-10-15 21:28:23
   from 'C:\xampp\htdocs\EspecialWeb2\templates\juegos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f8877bda4f8b4_48851225',
+  'unifunc' => 'content_5f88a2d711d3d4_70135681',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fac3ec53c483cb64be99cb0d9502f05a210c2cb3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\EspecialWeb2\\templates\\juegos.tpl',
-      1 => 1602775741,
+      1 => 1602790098,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./footerApp.tpl' => 1,
   ),
 ),false)) {
-function content_5f8877bda4f8b4_48851225 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f88a2d711d3d4_70135681 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:./header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:./nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -47,8 +47,8 @@ $_smarty_tpl->_subTemplateRender("file:./nav.tpl", $_smarty_tpl->cache_id, $_sma
 
                 <div class="row justify-content-center">
         <?php if ($_smarty_tpl->tpl_vars['usuario']->value == 0) {?>
-          <div class="col-8"> 
-            <ul class="align-self-start justify-self-center lista-generos">
+          <div class="col-11"> 
+            <ul class=" lista-generos">
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['lista_generos']->value, 'genero');
 if ($_from !== null) {
@@ -96,7 +96,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
   <div class="col-8">
   
       <div class="col-12 d-flex justify-content-end"> 
-      <?php $_smarty_tpl->_subTemplateRender("file:./juegos/eliminarJuegos.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+        <?php $_smarty_tpl->_subTemplateRender("file:./juegos/eliminarJuegos.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?> 
         <?php $_smarty_tpl->_subTemplateRender("file:./juegos/agregarJuego.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?> 

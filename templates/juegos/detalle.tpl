@@ -63,7 +63,7 @@
             </div>
           </div>
           </div>
-          <small>{$mensaje} </small>
+          <small>{$mensaje}</small>
       {/if}
   </div>
 </div>

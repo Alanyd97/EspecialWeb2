@@ -16,7 +16,12 @@ class Seguridad
   }
 
   function checkLoggedIn(){
-      
+    session_start();
+    if(!isset($_SESSION['admin'])){
+        return false;
+    }else{
+      return true;
+    } 
   }
 
   function logout(){
@@ -24,7 +29,6 @@ class Seguridad
     session_destroy();
     header(LOGIN);
   }
-
 
 }
 
