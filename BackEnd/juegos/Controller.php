@@ -19,9 +19,8 @@ class JuegosController extends Seguridad{
     public function DisplayJuegos(){
       $juegos = $this->model->GetJuegos();
       $generos = $this->generosModel->GetGeneros();
-      if ($this->checkLoggedIn()){ 
-          session_abort();
-          $usuario = $_SESSION['admin'];
+      $usuario = $this-> checkLoggedIn();
+      if ($usuario != null){ 
           $this->view->DisplayJuegos($juegos, $generos, $usuario);
       }else{
         $this->view->DisplayJuegos($juegos, $generos);
@@ -29,8 +28,8 @@ class JuegosController extends Seguridad{
      
     }
     public function InsertarJuegos(){
-      if ($this->checkLoggedIn()){  
-        session_abort();
+      $usuario = $this-> checkLoggedIn();
+      if ($usuario != null){ 
         $titulo = $_POST['tituloAgregar'];
         $sinopsis = $_POST['sinopsisAgregar'];
         $precio = $_POST['precioAgregar'];
@@ -38,7 +37,6 @@ class JuegosController extends Seguridad{
         if (isset($titulo) && isset($sinopsis) && isset($precio) && isset($genero)){
           $this->model->InsertarJuegos($titulo, $sinopsis, 2, $precio, $genero);
           $this->DisplayJuegos();
-          header(JUEGOS);
         }
       }else{
           $this->DisplayJuegos();
@@ -46,12 +44,11 @@ class JuegosController extends Seguridad{
   }
     
     public function FiltroJuegos($id){
+      $idGenero = $id[':ID'];
       $juegos = $this->model->FiltroJuegos($idGenero);
       $generos = $this->generosModel->GetGeneros();
-      if ($this->checkLoggedIn()){ 
-          session_abort();
-          $idGenero = $id[':ID'];
-          $usuario = $_SESSION['admin'];
+      $usuario = $this-> checkLoggedIn();
+      if ($usuario != null){ 
           $this->view->DisplayJuegos($juegos, $generos, $usuario);
       }else{
         $this->view->DisplayJuegos($juegos, $generos);
@@ -62,9 +59,8 @@ class JuegosController extends Seguridad{
       $idJuego = $id[':ID'];
       $juego = $this->model->GetJuego($idJuego);
       $requisitos = $this->model->GetRequisitos($juego->id_requisito);
-      if ($this->checkLoggedIn()){ 
-        session_abort();
-        $usuario = $_SESSION['admin'];
+      $usuario = $this-> checkLoggedIn();
+      if ($usuario != null){ 
         $this->view->DisplayJuego($juego, $requisitos, $usuario, $mensaje);
       }else{
         $this->view->DisplayJuego($juego, $requisitos);
@@ -73,8 +69,8 @@ class JuegosController extends Seguridad{
     }
 
     public function EditarJuego($id){
-      if ($this->checkLoggedIn()){ 
-        session_abort();
+      $usuario = $this-> checkLoggedIn();
+      if ($usuario != null){ 
         $titulo = $_POST['titulo'];
         $precio = $_POST['precio'];
         $sinopsis = $_POST['sinopsis'];
@@ -90,11 +86,11 @@ class JuegosController extends Seguridad{
     }
 
     public function EliminarJuego(){
-        if ($this->checkLoggedIn()){ session_abort();
+      $usuario = $this-> checkLoggedIn();
+      if ($usuario != null){ 
           $id = $_POST['juego'];
           $this->model->BorrarJuegos($id);
           $this->DisplayJuegos();
-          header(JUEGOS);
       }else{
         $this->DisplayJuegos();
       }

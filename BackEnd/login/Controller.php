@@ -9,25 +9,27 @@ class LoginController extends Seguridad{
   private $view;
   private $modelUsuario;
   private $juegosController;
+  private $Seguridad;
 
   function __construct(){
     $this->view = new LoginView();
     $this->modelUsuario = new UsuarioModel();
     $this->juegosController = new JuegosController();
+    $this->Seguridad = new Seguridad();
   }
 
     // FUNCIONES DE LOGIN
 
   
   // MUESTRA EL LOGIN
-  public function DisplayLogin(){
+  public function DisplayLogin(){ 
     if ($this->checkLoggedIn()){
-      session_abort();
       $this->juegosController->DisplayJuegos();
       header(JUEGOS);
     }else{  
       $this->view->DisplayLogin();
     }
+
   }
 
   // LOGIN 
@@ -41,7 +43,6 @@ class LoginController extends Seguridad{
             $_SESSION['user'] =  $dbUser->nombre;
             $_SESSION['id_usuario'] =  $dbUser->id_usuario;
             $_SESSION['admin'] = $dbUser->admin;
-            header(JUEGOS);
             $this->juegosController->DisplayJuegos();
           }else{
             $this->view->DisplayLogin("Clave incorrecta");

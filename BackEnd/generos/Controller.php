@@ -14,7 +14,8 @@ class GenerosController extends Seguridad {
     }
 
     public function InsertarGeneros(){
-        if ($this->checkLoggedIn()){session_abort();
+        $usuario = $this->checkLoggedIn();
+        if ($usuario != null){ 
             $genero = $_POST['genero'];
             if (isset($genero)){
                 $this->model->InsertarGeneros($genero);
@@ -25,7 +26,8 @@ class GenerosController extends Seguridad {
         }
     }
     public function EditarGenero($params = null){
-        if ($this->checkLoggedIn()){session_abort();
+        $usuario = $this->checkLoggedIn();
+        if ($usuario != null){ 
             $nombre = $_POST['editarGenero'];
             $id = $params[':ID'];
             $this->model->EditarGeneros($nombre,$id);
@@ -36,7 +38,8 @@ class GenerosController extends Seguridad {
     }
     
     public function EliminarGenero($params = null) {
-        if ($this->checkLoggedIn()){session_abort();
+        $usuario = $this->checkLoggedIn();
+        if ($usuario != null){ 
             $id = $params[':ID'];
             $this->model->BorrarGenero($id);
             $this->juegosController->DisplayJuegos();

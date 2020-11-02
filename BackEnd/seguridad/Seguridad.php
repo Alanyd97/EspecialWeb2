@@ -4,27 +4,25 @@ class Seguridad
 {
 
   function __construct(){
-    session_start();
-    if(isset($_SESSION["nombre"])){
-      if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000000)) {
-        $this->logout(); 
-      }
-        $_SESSION['LAST_ACTIVITY'] = time(); 
-    }else{
-        header(LOGIN);
-    }
   }
 
   function checkLoggedIn(){
-    session_start();
-    if(!isset($_SESSION['admin'])){
-        return false;
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+    if(isset($_SESSION['admin'])){
+        return $_SESSION['admin'];
     }else{
-      return true;
+      return null;
     } 
   }
 
   function logout(){
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
     session_start();
     session_destroy();
     header(LOGIN);
