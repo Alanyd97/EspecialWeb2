@@ -18,14 +18,14 @@ class JuegosView{
         $this->smarty->display('./../templates/footer.tpl');
     }
    
-    function DisplayJuego($juego, $requisito = null, $usr = 2, $mensaje = ""){
+    function DisplayJuego($juego, $requisito = null, $usr = 2, $id_usuario = 0, $mensaje = ""){
         $this->smarty->display('./../templates/header.tpl');
         $this->smarty->assign('basehref', BASE_URL);
         $this->smarty->assign('juego', $juego);
+        $this->smarty->assign('id_usuario', $id_usuario);
         $this->smarty->assign('usuario', $usr);
         $this->smarty->assign('mensaje', $mensaje);
         $this->smarty->assign('requisitos', $requisito);
         $this->smarty->display('./../templates/juegos/detalle.tpl');
-        $this->smarty->display('./../templates/footer.tpl');
     }
 }

@@ -8,10 +8,10 @@ button{
     border: 0;
 }
 body{
-    padding : 0 !important;
 }
 .container-fluid{
-    padding: 1% 0 0 0 !important;
-    height: 100% !important;
+}
+.comentarios{
+    background-color: black;
 }
 

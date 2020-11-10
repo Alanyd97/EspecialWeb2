@@ -5,7 +5,7 @@
  <div class="links-container">
     <ul class="nav navbar-nav navbar-right d-inline">
     <li class="links-nav"><a class="link" href="juegos">Inicio</a></li>
-    {if $usuario == 0}
+    {if $usuario == 0 || $usuario == 1}
         <li class="links-nav"><a href="logOut" class="link " >Log Out</a></li>
     {elseif $usuario == 2}
         <li class="links-nav"><a class="link" href="login">Log In</a></li>

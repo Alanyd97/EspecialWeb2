@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-15 18:24:29
+/* Smarty version 3.1.34-dev-7, created on 2020-11-02 22:27:14
   from 'C:\xampp\htdocs\EspecialWeb2\templates\footerApp.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f8877bdec0924_68016988',
+  'unifunc' => 'content_5fa079b25edd32_41425362',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '90653406d1b6647969313bd94ff82f128e24896a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\EspecialWeb2\\templates\\footerApp.tpl',
-      1 => 1602503724,
+      1 => 1604352417,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f8877bdec0924_68016988 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fa079b25edd32_41425362 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="row footer">
     <div class="col-6  d-flex justify-content-center ">  
         <div class="d-flex align-self-center justify-content-center linea1">

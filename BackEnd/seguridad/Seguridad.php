@@ -12,7 +12,7 @@ class Seguridad
         session_start(); 
     } 
     if(isset($_SESSION['admin'])){
-        return $_SESSION['admin'];
+        return array($_SESSION['admin'], $_SESSION['id_usuario']);
     }else{
       return null;
     } 

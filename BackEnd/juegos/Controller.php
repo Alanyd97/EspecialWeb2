@@ -21,7 +21,7 @@ class JuegosController extends Seguridad{
       $generos = $this->generosModel->GetGeneros();
       $usuario = $this-> checkLoggedIn();
       if ($usuario != null){ 
-          $this->view->DisplayJuegos($juegos, $generos, $usuario);
+          $this->view->DisplayJuegos($juegos, $generos, $usuario[0]);
       }else{
         $this->view->DisplayJuegos($juegos, $generos);
       }
@@ -49,7 +49,7 @@ class JuegosController extends Seguridad{
       $generos = $this->generosModel->GetGeneros();
       $usuario = $this-> checkLoggedIn();
       if ($usuario != null){ 
-          $this->view->DisplayJuegos($juegos, $generos, $usuario);
+          $this->view->DisplayJuegos($juegos, $generos, $usuario[0]);
       }else{
         $this->view->DisplayJuegos($juegos, $generos);
       }
@@ -61,7 +61,7 @@ class JuegosController extends Seguridad{
       $requisitos = $this->model->GetRequisitos($juego->id_requisito);
       $usuario = $this-> checkLoggedIn();
       if ($usuario != null){ 
-        $this->view->DisplayJuego($juego, $requisitos, $usuario, $mensaje);
+        $this->view->DisplayJuego($juego, $requisitos, $usuario[0], $usuario[1], $mensaje);
       }else{
         $this->view->DisplayJuego($juego, $requisitos);
       }
