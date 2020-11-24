@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2020 a las 07:49:18
+-- Tiempo de generación: 25-11-2020 a las 00:06:01
 -- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.10
+-- Versión de PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,6 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `comentario`
+--
+
+CREATE TABLE `comentario` (
+  `id_comentario` int(50) NOT NULL,
+  `id_producto` int(50) NOT NULL,
+  `id_usuario` int(50) NOT NULL,
+  `puntaje` int(10) NOT NULL,
+  `comentario` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `generos`
 --
 
@@ -31,15 +45,6 @@ CREATE TABLE `generos` (
   `id_generos` int(11) NOT NULL,
   `nombres` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `generos`
---
-
-INSERT INTO `generos` (`id_generos`, `nombres`) VALUES
-(1, 'accion'),
-(2, 'Shooter'),
-(3, 'terror');
 
 -- --------------------------------------------------------
 
@@ -56,15 +61,6 @@ CREATE TABLE `juegos` (
   `id_generos` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `juegos`
---
-
-INSERT INTO `juegos` (`id_juegos`, `titulo`, `sinopsis`, `id_requisito`, `precio`, `id_generos`) VALUES
-(1, 'Hitman Absolution', 'HITMAN: ABSOLUTION sigue los pasos del asesino original mientras trabaja en su contrato más personal hasta la fecha. Traicionado por la Agencia y buscado por la policía, el Agente 47 se ve abocado a la búsqueda de la redención en un mundo corrupto y retorcido.', 1, 1212, 1),
-(2, 'CS GO', 'Counter Strike es historia viva del videojuego moderno. Más allá de ser una de las licencias clave de Valve, se ha consolidado como uno de los pilares sobre los que se sostienen las bases de los shooters actuales, así como uno de los máximos embajadores del juego online y los eSports a nivel mundial.  Eso ya son palabras mayores.', 2, 0, 2),
-(3, 'A Total war saca : TROY', 'In this legendary age, heroes walk the earth. In an act that shocks the world, audacious Paris, prince of Troy, elopes with the beautiful queen of Sparta. As they sail away, King Menelaus curses her name. He vows to bring his wife home – whatever the cost!', 1, 1231, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -79,14 +75,6 @@ CREATE TABLE `requisitos` (
   `grafica` varchar(200) NOT NULL,
   `id_juegos` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `requisitos`
---
-
-INSERT INTO `requisitos` (`id_requisito`, `sistema`, `ram`, `procesador`, `grafica`, `id_juegos`) VALUES
-(1, 'Windows 7 (o mayor )', '2 GB RAM', 'True dual core CPU (Intel, AMD)', 'NV8600 512 Mb RAM, ó AMD equivalente', 1),
-(2, 'Windows XP (o mayor)', '1 GB de RAM para XP / 2 GB de RAM para Vista.', 'Intel Core 2 Duo E6600 / AMD Phenom X3 8750.', '256 MB de VRAM o superior, compatible con DirectX 9 y con soporte para Pixel Shader 3.0.', 2);
 
 -- --------------------------------------------------------
 
@@ -112,6 +100,12 @@ INSERT INTO `usuario` (`id_usuario`, `nombre`, `clave`, `admin`) VALUES
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD PRIMARY KEY (`id_comentario`);
 
 --
 -- Indices de la tabla `generos`
@@ -145,10 +139,16 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `id_comentario` int(50) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `generos`
 --
 ALTER TABLE `generos`
-  MODIFY `id_generos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_generos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `juegos`
