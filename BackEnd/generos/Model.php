@@ -5,7 +5,7 @@ class GenerosModel {
     private $db;
 
     function __construct(){
-        $this->db = new PDO('mysql:host=localhost:3310;'.'dbname=db_juegos;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_juegos;charset=utf8', 'root', '');
     }
     public function GetGenero($id){
         $sentencia = $this->db->prepare( "SELECT * FROM generos WHERE id_generos = ?");

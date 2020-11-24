@@ -95,11 +95,10 @@
   
  
 </div>
-   <div class="row d-flex justify-content-center p-0 m-0 comentarios">
+   <div class="row d-flex justify-content-center p-0 m-0 comentarios" id="app">
    {if $usuario < 1} 
     <input type="text" id="idUsuario" class="form-control d-none" value="{$id_usuario}"> 
-    <input id="admin" value="{$usuario}" class="form-control">
-    <label for="exampleInputEmail1">{$usuario}</label>
+    <input id="admin" value="{$usuario}" class="form-control  d-none">
   {/if} 
   {include file="./comentarios.tpl"}
   </div>
