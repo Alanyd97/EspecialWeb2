@@ -1,5 +1,5 @@
 
-<section id="comentarios">
+<section id="template-vue-comentarios">
         <table class="table table-dark">
             <thead>
                 <tr>
@@ -27,7 +27,11 @@
     {if $usuario == 2}
       <h2>Loguearse para poder comentar</h2>
     {elseif $usuario == 1}
-      <button  v-if="admin ==0 " class="btn btn-primary  d-none" @click="postComentario" value="">Comentar</button>
+    <form id="FormComentarios" action="nuevo" method="post">
+               <textarea class="form-control" name="comentario" id="Comentarios" rows="3"></textarea>
+                <input type="number" name="puntaje"  max="10">
+                <input type="submit" value="Insertar">
+            </form>
     {/if} 
     
   </div>
