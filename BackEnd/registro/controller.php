@@ -16,7 +16,7 @@ class registrarcontroller {
     }
     public function Registrar(){
         $users = $this->umodel->GetUsuarios();
-        if (($_POST['nombre'] != '') && ($_POST['email'] != '') && ($_POST['clave'] != '') && ($_POST['pregunta'] != '')){
+        if (($_POST['nombre'] != '') && ($_POST['email'] != '') && ($_POST['clave'] != '') ){
             foreach($users as $usuario){
                 if(($_POST['nombre'] != $usuario->nombre) && ($_POST['email'] != $usuario->email)){
                     $repetida = false;
@@ -27,7 +27,7 @@ class registrarcontroller {
                 }
             }
             if($repetida == false){
-                $this->model->Registrar($_POST['nombre'],$_POST['email'],$_POST['clave'],$_POST['pregunta']);
+                $this->model->Registrar($_POST['nombre'],$_POST['email'],$_POST['clave']);
                 session_start();
                 $_SESSION['user'] = $_POST['nombre'];
                 $_SESSION['admin'] = 0;
