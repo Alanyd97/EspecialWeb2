@@ -35,12 +35,14 @@ class LoginController extends Seguridad{
   // LOGIN 
   public function Login(){
       $nombre = $_POST['nombre'];
+      $email = $_POST['email'];
       $clave = $_POST['clave'];
       $dbUser = $this->modelUsuario->GetUsuario($nombre);
       if (!empty($dbUser)){
         if (password_verify($clave, $dbUser->clave)){
             session_start();
-            $_SESSION['user'] =  $dbUser->nombre; 
+            $_SESSION['user'] =  $dbUser->nombre;
+            $_SESSION['email'] =  $dbUser->email;  
             $_SESSION['id_usuario'] =  $dbUser->id_usuario;
             $_SESSION['admin'] = $dbUser->admin;
             $this->juegosController->DisplayJuegos();
@@ -60,14 +62,14 @@ class LoginController extends Seguridad{
   }
 }
 public function AgregarAdmin(){
-  $this->model->AgregarAdmin($_POST['admin'],$_POST['valoradmin']);
-  header("Location: " . BASE_USER);
+  $this->model->AgregarAdmin($_POST['admin']);
+  header("Location: " . BASE_URL);
 }
 
 public function BorrarUser($params = null){
   $id = $params[':ID'];
   $this->model->BorrarUser($id);
-  header("Location: " . BASE_USER);
+  header("Location: " . BASE_URL);
 }
 
 public function GetUsuarios(){

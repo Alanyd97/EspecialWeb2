@@ -32,6 +32,11 @@ $r->addRoute("agregarGenero","POST","GenerosController","InsertarGeneros");
 $r->addRoute("registro","GET","registrarcontroller","DisplayRegistro");
 $r->addRoute("registrar","POST","registrarcontroller","Registrar");
 
+$r->addRoute("borrarUser/:ID", "GET", "LoginController", "BorrarUser");
+$r->addRoute("usuarios", "GET", "LoginController", "GetUsuarios");
+$r->addRoute("administrador", "POST", "LoginController", "AgregarAdmin");
+
+
 $r->setDefaultRoute("LoginController", "DisplayLogin");
 
 

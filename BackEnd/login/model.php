@@ -17,9 +17,9 @@ class UsuarioModel{
     $usuario = $sentencia->fetch(PDO::FETCH_OBJ);   
     return $usuario;
   }
-  function AddUsuario($nombre,$clave, $admin){
-    $sentencia = $this->db->prepare("INSERT INTO usuario(nombre,email,clave, admin) VALUES(?,?,?)");
-    $sentencia->execute(array($nombre,$clave, $admin));
+  function AddUsuario($nombre,$mail,$clave, $admin){
+    $sentencia = $this->db->prepare("INSERT INTO usuario(nombre,email,clave, admin) VALUES(?,?,?,?)");
+    $sentencia->execute(array($nombre,$mail,$clave, $admin));
   }
   public function GetPassword($user){
     $sentencia = $this->db->prepare( "SELECT * FROM usuario WHERE nombre = ?");
@@ -52,10 +52,11 @@ public function BorrarUser($id){
     $sentencia->execute(array($id));
 }
 
-public function AgregarAdmin($usuario,$id){
+public function AgregarAdmin($id,$usuario){
     $sentencia = $this->db->prepare("UPDATE usuario SET admin=? WHERE id_usuario=?");
     $sentencia->execute(array($id,$usuario));
 }
+
 public function CambiarConstrasena($usuario,$email,$nuevacontra,$id){
     $hash = password_hash($nuevacontra, PASSWORD_DEFAULT);
 
