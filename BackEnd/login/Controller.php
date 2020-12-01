@@ -58,27 +58,5 @@ class LoginController extends Seguridad{
     header(LOGIN);
   }
 
-  public function AgregarAdmin(){
-    $this->model->AgregarAdmin($_POST['admin']);
-    header("Location: " . BASE_URL);
-  }
 
-  public function BorrarUser($params = null){
-    $id = $params[':ID'];
-    $this->model->BorrarUser($id);
-    header("Location: " . BASE_URL);
-  }
-
-  public function GetUsuarios(){
-    $this->checkLogIn();
-    $id = $this->checkUser();
-    if ($id == 1){
-        $users = $this->model->GetUsuarios();
-        $this->view->AdminUser($id,$users);
-
-    } else {
-        header("Location: " . BASE_URL);
-    }
-
-  }
 }

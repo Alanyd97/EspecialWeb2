@@ -18,4 +18,13 @@ class UsuarioView{
         
         public function showError($msgError) {
         }
+        public function DisplayUsuarios($usuarios, $mensaje = "")
+        {
+            $this->smarty->display('./../templates/header.tpl');
+            $this->smarty->assign('basehref', JUEGOS);
+            $this->smarty->assign('usuarios', $usuarios);
+            $this->smarty->assign('mensaje', $mensaje);
+            $this->smarty->assign('usuario', 0);
+            $this->smarty->display('./../templates/usuarios.tpl');
+        }
 }

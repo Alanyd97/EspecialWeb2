@@ -10,6 +10,7 @@ require_once "Router.php";
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
 define("JUEGOS", 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/juegos');
 define("LOGIN", 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/login');
+define("USUARIOS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/usuarios');
 
  
 $r = new Router();
@@ -31,10 +32,9 @@ $r->addRoute("agregarGenero","POST","GenerosController","InsertarGeneros");
 
 $r->addRoute("registro","GET","UsuarioController","DisplayRegistro");
 $r->addRoute("registrar","POST","UsuarioController","Registrar");
-
-$r->addRoute("borrarUser/:ID", "GET", "LoginController", "BorrarUser");
-$r->addRoute("usuarios", "GET", "LoginController", "GetUsuarios");
-$r->addRoute("administrador", "POST", "LoginController", "AgregarAdmin");
+$r->addRoute("borrarUser/:ID", "GET", "UsuarioController", "BorrarUser");
+$r->addRoute("usuarios", "GET", "UsuarioController", "GetUsuarios");
+$r->addRoute("setPermisos/:ID", "GET", "UsuarioController", "AgregarAdmin");
 
 
 $r->setDefaultRoute("LoginController", "DisplayLogin");

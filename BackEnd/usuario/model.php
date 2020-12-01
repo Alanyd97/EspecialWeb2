@@ -13,7 +13,7 @@ class UsuarioModel{
   // DEVUELVE USUARIO DE LA BD
         public function GetUsuario($id){
           $sentencia = $this->db->prepare( "SELECT * FROM usuario WHERE id_usuario = ?");
-          $sentencia->execute(array($nombre));
+          $sentencia->execute(array($id));
           $usuario = $sentencia->fetch(PDO::FETCH_OBJ);   
           return $usuario;
         }
@@ -43,6 +43,6 @@ class UsuarioModel{
 
     public function EditarUsuario($usuario,$clave, $admin, $id){
         $sentencia = $this->db->prepare("UPDATE usuario SET nombre=?,clave=?, admin = ? WHERE id_usuario=?");
-        $sentencia->execute(array($usuario,$clave,$id));
+        $sentencia->execute(array($usuario,$clave,$admin, $id));
     }
 }
