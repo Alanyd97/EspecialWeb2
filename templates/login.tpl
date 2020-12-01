@@ -22,6 +22,7 @@
             <small>{$mensaje}</small>
             <div class="row d-flex justify-content-center">
                 <a class="link" href="juegos">Ingresar como invitado</a>
+                 <button><a href = "registro">Registrarse</a></button>
             </div>
           </form>
     </div>

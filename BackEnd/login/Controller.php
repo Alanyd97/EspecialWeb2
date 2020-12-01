@@ -1,7 +1,7 @@
 <?php
 
 require_once "View.php";
-require_once "Model.php";
+require_once "./BackEnd/usuario/model.php";
 require_once "./BackEnd/juegos/Controller.php";
 require_once "./BackEnd/seguridad/Seguridad.php";
 
@@ -25,7 +25,6 @@ class LoginController extends Seguridad{
   public function DisplayLogin(){ 
     if ($this->checkLoggedIn()){
       $this->juegosController->DisplayJuegos();
-      header(JUEGOS);
     }else{  
       $this->view->DisplayLogin();
     }
@@ -36,7 +35,7 @@ class LoginController extends Seguridad{
   public function Login(){
       $nombre = $_POST['nombre'];
       $clave = $_POST['clave'];
-      $dbUser = $this->modelUsuario->GetUsuario($nombre);
+      $dbUser = $this->modelUsuario->GetUsuarioPorNombre($nombre);
       if (!empty($dbUser)){
         if (password_verify($clave, $dbUser->clave)){
             session_start();
@@ -57,5 +56,29 @@ class LoginController extends Seguridad{
     session_start();
     session_destroy();
     header(LOGIN);
+  }
+
+  public function AgregarAdmin(){
+    $this->model->AgregarAdmin($_POST['admin']);
+    header("Location: " . BASE_URL);
+  }
+
+  public function BorrarUser($params = null){
+    $id = $params[':ID'];
+    $this->model->BorrarUser($id);
+    header("Location: " . BASE_URL);
+  }
+
+  public function GetUsuarios(){
+    $this->checkLogIn();
+    $id = $this->checkUser();
+    if ($id == 1){
+        $users = $this->model->GetUsuarios();
+        $this->view->AdminUser($id,$users);
+
+    } else {
+        header("Location: " . BASE_URL);
+    }
+
   }
 }

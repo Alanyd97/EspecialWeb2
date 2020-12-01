@@ -3,6 +3,7 @@
 //require_once "BackEnd/config/ConfigApp.php";
 require_once "BackEnd/login/Controller.php";
 require_once "BackEnd/juegos/Controller.php";
+require_once "BackEnd/usuario/Controller.php";
 require_once "BackEnd/generos/Controller.php";
 require_once "Router.php";
 
@@ -27,6 +28,13 @@ $r->addRoute("eliminarJuego", "POST", "JuegosController", "EliminarJuego");
 $r->addRoute("deleteG/:ID", "GET", "GenerosController", "EliminarGenero");
 $r->addRoute("editarGenero/:ID", "POST", "GenerosController", "EditarGenero");
 $r->addRoute("agregarGenero","POST","GenerosController","InsertarGeneros");
+
+$r->addRoute("registro","GET","UsuarioController","DisplayRegistro");
+$r->addRoute("registrar","POST","UsuarioController","Registrar");
+
+$r->addRoute("borrarUser/:ID", "GET", "LoginController", "BorrarUser");
+$r->addRoute("usuarios", "GET", "LoginController", "GetUsuarios");
+$r->addRoute("administrador", "POST", "LoginController", "AgregarAdmin");
 
 
 $r->setDefaultRoute("LoginController", "DisplayLogin");

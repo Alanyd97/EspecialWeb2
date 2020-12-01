@@ -3,8 +3,20 @@
             <input id="admin" value="{$usuario}" class="form-control  d-none">
         {/if}
 
+<<<<<<< HEAD
         <section id="comentarios">
             <table class="table table-dark">
+=======
+<section id="template-vue-comentarios">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Comentarios</th>
+                    <th scope="col">Puntajes</th> 
+                </tr>
+            </thead>
+            <tbody>
+>>>>>>> 60b3165b36fc738cfaedd130f6d0e175c714dab7
             {literal}
                 <thead>
                     <tr>
@@ -25,6 +37,7 @@
             </table>
         </section>
 
+<<<<<<< HEAD
         <div class="container-fluid">
 
 
@@ -40,4 +53,20 @@
 
             </div>
         </div>
+=======
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center comentarios">
+  <input type="text" id="idJuegos" value="{$juego->id_juegos}"  class="form-control  d-none" v-model="comentario.id_juegos = {$juego->id_juegos}">
+    {if $usuario == 2}
+      <h2>Loguearse para poder comentar</h2>
+    {elseif $usuario == 1}
+    <form id="FormComentarios" action="nuevo" method="post">
+               <textarea class="form-control" name="comentario" id="Comentarios" rows="3"></textarea>
+                <input type="number" name="puntaje"  max="10">
+                <input type="submit" value="Insertar">
+            </form>
+    {/if} 
+    
+  </div>
+>>>>>>> 60b3165b36fc738cfaedd130f6d0e175c714dab7
 </div>
