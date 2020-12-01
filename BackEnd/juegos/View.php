@@ -27,5 +27,7 @@ class JuegosView{
         $this->smarty->assign('mensaje', $mensaje);
         $this->smarty->assign('requisitos', $requisito);
         $this->smarty->display('./../templates/juegos/detalle.tpl');
+        $this->smarty->display('./../templates/footer.tpl');
     }
+   
 }

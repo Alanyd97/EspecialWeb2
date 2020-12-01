@@ -1,42 +1,34 @@
 "use strict"
-    // d
-    //     // this.admin = document.getElementById("admin").value;
-    //     // this.id_usuario = document.getElementById("idUsuario").value;
-    //     // console.log(this.admin + "  = " + this.id_usuario);
-    //     alert(document.getElementById("admin").value);
-
-
-    // })
 document.addEventListener("DOMContentLoaded", function(){
     const app = new Vue({
-        el: "#app",  
+        el: '#app',  
         created() {
             this.admin = document.getElementById("admin").value;
             this.getComentario();
         },
         data: {
-            respuesta : [],
+            respuesta : [{}],
             admin:'',
             idComentario: '',
             comentario: {
-                puntaje: "",
-                comentario: "",
+                puntaje: "asdasd",
+                comentario: "asdasd",
                 idUsr: '',
                 idJuegos: '',
                 admin: ''
             },
-            url: "api/comentarios",
+            url: "http://localhost/EspecialWeb2/api/comentarios",
         },
         methods: {
             async getComentario() {
                 let id =  document.querySelector("#idJuegos").value;
+                console.log("---->"+id);
                 try {
-                    console.log("------------->"+id);
                     let promesa = await fetch(this.url+"/"+id);
                     if (promesa.ok) {
                         let respuesta = await promesa.json();
                         if (respuesta) {    
-                            app.respuesta= respuesta;
+                            app.respuesta = respuesta;
                         }
                     } else {
                         alert("Ocurrio un error");
@@ -46,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 }
             },
             async postComentario() {  
+                alert("alo");
                 try {
                     let promesa = await fetch(this.url, {
                         method: 'POST',

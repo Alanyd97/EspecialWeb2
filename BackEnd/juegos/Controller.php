@@ -27,6 +27,7 @@ class JuegosController extends Seguridad{
       }
      
     }
+    
     public function InsertarJuegos(){
       $usuario = $this-> checkLoggedIn();
       if ($usuario != null){ 

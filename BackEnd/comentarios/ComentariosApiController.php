@@ -12,22 +12,15 @@ class ComentariosApiController extends Seguridad {
         $this->APIView = new APIView();
     }
 
-    public function GetComentarios($params = []) {
+    public function GetComentarios($params) {
         $comentarios = $this->model->GetComentarioJuegos($params[':ID']);
         $this->APIView->response($comentarios, 200);
     }
 
-    public function AgregarComentario($params = []){
-        if (isset($params)){
-            $usuario = $this->checkLoggedIn();
-            if (true){ 
-                $comentarios = $this->APIView->getData();
-                $this->model->AgregarComentario($comentarios->idJuegos, $comentarios->idUsr, $comentarios->puntaje, $comentarios->comentario);
-                $this->APIView->response("Comentario agregado", 200);
-            }else{
-                $this->APIView->response("No puede comentar", 404);
-            }
-        }
+    public function AgregarComentario(){ 
+        $comentarios = $this->APIView->getData();
+        $this->model->AgregarComentario($comentarios->idJuegos, $comentarios->idUsr, $comentarios->puntaje, $comentarios->comentario);
+        $this->APIView->response("Comentario agregado", 200);
     }
 
 
