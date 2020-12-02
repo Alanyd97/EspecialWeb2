@@ -51,9 +51,9 @@ document.addEventListener("DOMContentLoaded", function(){
                     console.log(error);
                 }  
             },
-            async deleteComentario() {
+            async deleteComentario(id) {
                 try {
-                    let promesa = await fetch(this.url+"/"+this.idComentario, {
+                    let promesa = await fetch(this.url+"/"+id, {
                         method: 'DELETE',
                         headers: {'Content-Type': 'application/json'},       
                         body: JSON.stringify(this.comentario)
