@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function(){
             comentario: {
                 puntaje: "asdasd",
                 comentario: "asdasd",
-                idUsr: '',
                 idJuegos: '',
                 admin: ''
             },
@@ -38,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function(){
                 }
             },
             async postComentario() {  
-                alert("alo");
                 try {
                     let promesa = await fetch(this.url, {
                         method: 'POST',

@@ -2,7 +2,7 @@
 {include file="./header.tpl"}
 {include file="./nav.tpl"}
 
-<div class="container-fluid">
+<div class="container-fluid" id="app" >
 <div class="row justify-content-center">
 <div class="col-2 contenedor-lista">
     <div class="row">
