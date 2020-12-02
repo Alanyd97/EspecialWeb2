@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2020 a las 00:06:01
+-- Tiempo de generación: 02-12-2020 a las 01:35:42
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.34
 
@@ -29,11 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `comentario` (
   `id_comentario` int(50) NOT NULL,
-  `id_producto` int(50) NOT NULL,
+  `id_juegos` int(11) NOT NULL,
   `id_usuario` int(50) NOT NULL,
   `puntaje` int(10) NOT NULL,
   `comentario` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`id_comentario`, `id_juegos`, `id_usuario`, `puntaje`, `comentario`) VALUES
+(1, 4, 1, 4, 'lorem ipsum'),
+(2, 4, 1, 5, 'asdasdasdasd');
 
 -- --------------------------------------------------------
 
@@ -45,6 +53,15 @@ CREATE TABLE `generos` (
   `id_generos` int(11) NOT NULL,
   `nombres` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `generos`
+--
+
+INSERT INTO `generos` (`id_generos`, `nombres`) VALUES
+(11, 'Suspenso'),
+(13, 'Accion'),
+(15, 'aaaaaaaaaaa');
 
 -- --------------------------------------------------------
 
@@ -61,6 +78,21 @@ CREATE TABLE `juegos` (
   `id_generos` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `juegos`
+--
+
+INSERT INTO `juegos` (`id_juegos`, `titulo`, `sinopsis`, `id_requisito`, `precio`, `id_generos`) VALUES
+(4, 'The witcher', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', 2, 123, 13),
+(5, 'asd', 'asd', 2, 2222, 11),
+(6, 'The witcher', 'ssssssss', 2, 222, 15),
+(7, 'The witcher', 'ssssssss', 2, 222, 15),
+(8, 'The witcher', 'ssssssss', 2, 222, 15),
+(9, 'asd', 's', 2, 2, 11),
+(10, 'asd', 's', 2, 2, 11),
+(11, 'a', 'a', 2, 2, 15),
+(12, 's', 's', 2, 2, 15);
+
 -- --------------------------------------------------------
 
 --
@@ -75,6 +107,13 @@ CREATE TABLE `requisitos` (
   `grafica` varchar(200) NOT NULL,
   `id_juegos` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `requisitos`
+--
+
+INSERT INTO `requisitos` (`id_requisito`, `sistema`, `ram`, `procesador`, `grafica`, `id_juegos`) VALUES
+(2, 'Win10', '4gm', 'intel core i3', '---', 4);
 
 -- --------------------------------------------------------
 
@@ -94,8 +133,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `clave`, `admin`) VALUES
-(1, 'asds', 'asd', 0),
-(7, 'asd', '$2y$10$Nj0PaSNUoVBW4DB8m8DmZewVKM96VQn0YQfIVtLtEj6UkqqGCteM2', 0);
+(1, 'asds', '$2y$10$Nj0PaSNUoVBW4DB8m8DmZewVKM96VQn0YQfIVtLtEj6UkqqGCteM2', 0),
+(7, 'asd', '$2y$10$Nj0PaSNUoVBW4DB8m8DmZewVKM96VQn0YQfIVtLtEj6UkqqGCteM2', 0),
+(10, 'usuariosimple', '$2y$10$GWuV.N.YbSHbq0UpQOo0yOlM9p7FczMxrKUkSge/is7QZrO4wKffC', 0);
 
 --
 -- Índices para tablas volcadas
@@ -142,19 +182,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_comentario` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `generos`
 --
 ALTER TABLE `generos`
-  MODIFY `id_generos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_generos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `juegos`
 --
 ALTER TABLE `juegos`
-  MODIFY `id_juegos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_juegos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `requisitos`
@@ -166,7 +206,7 @@ ALTER TABLE `requisitos`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_usuario` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas

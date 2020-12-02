@@ -37,9 +37,11 @@ class JuegosController extends Seguridad{
         $genero = $_POST['genero'];
         if (isset($titulo) && isset($sinopsis) && isset($precio) && isset($genero)){
           $this->model->InsertarJuegos($titulo, $sinopsis, 2, $precio, $genero);
+          header("Location: " . JUEGOS);
           $this->DisplayJuegos();
         }
       }else{
+        header("Location: " . JUEGOS);
           $this->DisplayJuegos();
       }
   }
